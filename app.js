@@ -1,22 +1,22 @@
 'use strict';
 
-var openTimes = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm'];
+var openTimes = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 function CookieStore(location, minCustomers, maxCustomers, avgCookies) {
   this.location = location;
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
   this.avgCookies = avgCookies;
-  this.avgCookiesPerHourAr = [];
+  this.cookiesPerHourAr = [];
 
-  this.custPerHour = function() {
-    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers));
-
-  };
+  //Cookie Calculator
   this.cookiesPerHour = function() {
-    for (var i = 0; i < 15; i++){
-      var avgCookies = Math.floor(this.custPerHour() * this.avgCookies);
-      this.cookiesPerHour.push(avgCookiesPerHourAr);
+    for (var i = 0; i < openTimes.length; i++){
+      var customersThisHour = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+
+      var avgCookies = Math.floor(customersThisHour * this.avgCookies);
+//    array                 into value
+      this.cookiesPerHourAr.push(avgCookies);
     };
   };
   console.log(this.location);
@@ -53,9 +53,12 @@ var storeFive = new CookieStore('Alki', 2, 16, 4.6);
 
 var stores = [storeOne, storeTwo, storeThree, storeFour, storeFive];
 
-for(var i = 0; i < stores.length; i++){ // console.log(stores.cookiesPerHourAr);
-  var storesEl = stores[i];
+for (var i = 0; i < stores.length; i++) {
+  stores[i].cookiesPerHour();
 }
+// for(var i = 0; i < stores.length; i++){ // console.log(stores.cookiesPerHourAr);
+//   var storesEl = stores[i];
+// }
 
 console.log(openTimes);
 
@@ -69,36 +72,55 @@ console.log(storeOne.location);
 
 var tableEl = document.createElement('table');
 
-for(var i = 0; i < stores.length; i++){
-  var currentStore = stores[i];
+// for(var i = 0; i < stores.length; i++){
+//   var currentStore = stores[i];
+//
+//   var rowEl = document.createElement('tr');
+//   tableEl.appendChild(rowEl);
+//
+// // Add for loop
+//
+//   var openTimesEl = document.createElement('th');
+//   openTimesEl.textContent = openTimes;
+//   tableEl.appendChild(openTimesEl);
+//
+//   var locationEl = document.createElement('th');
+//   locationEl.textContent = currentStore.location;
+//   rowEl.appendChild(locationEl);
+//
+//   var minCustEl = document.createElement('td');
+//   minCustEl.textContent = currentStore.minCustomers;
+//   rowEl.appendChild(minCustEl);
+//
+//   var maxCustEl = document.createElement('td');
+//   maxCustEl.textContent = currentStore.maxCustomers;
+//   rowEl.appendChild(maxCustEl);
+//
+//   var aveCookiesEl = document.createElement('td');
+//   aveCookiesEl.textContent = currentStore.avgCookies;
+//   rowEl.appendChild(aveCookiesEl);
+//
+// };
 
-  var rowEl = document.createElement('tr');
-  tableEl.appendChild(rowEl);
+function tableHead() {
+  var tableHead = document.createElement('thead');
+  tableHead.textContent = 'Times';
+  tableEl.appendChild(tableHead);
 
-  var openTimesEl = document.createElement('th');
-  openTimesEl.textContent = openTimes;
-  tableEl.appendChild(openTimesEl);
+  for (var i = 0; i < openTimes.length; i++) {
+    var hourEl = document.createElement('th');
+    hourEl.textContent = openTimes[i];
+    tableHead.appendChild(hourEl);
+  }
 
-  var locationEl = document.createElement('th');
-  locationEl.textContent = currentStore.location;
-  rowEl.appendChild(locationEl);
-
-  var minCustEl = document.createElement('td');
-  minCustEl.textContent = currentStore.minCustomers;
-  rowEl.appendChild(minCustEl);
-
-  var maxCustEl = document.createElement('td');
-  maxCustEl.textContent = currentStore.maxCustomers;
-  rowEl.appendChild(maxCustEl);
-
-  var aveCookiesEl = document.createElement('td');
-  aveCookiesEl.textContent = currentStore.avgCookies;
-  rowEl.appendChild(aveCookiesEl);
-
+  var storeTotalEl = document.createElement('th');
+  storeTotalEl.textContent = 'Total';
+  tableHead.appendChild(storeTotalEl);
 };
 
-document.body.appendChild(tableEl);
+tableHead();
 
+document.body.appendChild(tableEl);
 //createElement('p', 'id', 'myCustomId', 'Hello User', sectionEl);
 //<section id = "sectionEl">
   //<p id = "myCustomId">Hello User</p>
