@@ -26,6 +26,16 @@ function CookieStore(location, minCustomers, maxCustomers, avgCookies) {
   // console.log(CookieStore.cookiesPerHour);
 }
 
+// // simple element creation
+// function createElement(tagType, tagIdentifier, tagIdentifierName, elementContent, parentNode) {
+//   var element = document.createElement(tagType);
+//   element.setAttribute(tagIdentifier, tagIdentifierName);
+//   element.textContent = elementContent;
+//   console.log(element);
+//   //give the Child to the Dom
+//   parentNode.appendChild(element);
+// } // credit Ben Ayzenberg
+
 var storeOne = new CookieStore('1st and Pike', 23, 65, 6.3, []);
 console.log(storeOne);
 
@@ -47,6 +57,8 @@ for(var i = 0; i < stores.length; i++){ // console.log(stores.cookiesPerHourAr);
   var storesEl = stores[i];
 }
 
+console.log(storesEl);
+
 console.log(CookieStore.cookiesPerHourAr);
 
 console.log(storeOne.maxCustomers);
@@ -63,11 +75,6 @@ for(var i = 0; i < stores.length; i++){
 
   var nameEl = document.createElement('th');
   nameEl.textContent = currentStore.name;
-
-  // for(var i = 0; i < stores.length; i++){
-  //   var totot;
-  // };
-  // <th>currentStore</th>
   rowEl.appendChild(nameEl);
 
   var minCustEl = document.createElement('td');
@@ -85,6 +92,11 @@ for(var i = 0; i < stores.length; i++){
 };
 
 document.body.appendChild(tableEl);
+
+//createElement('p', 'id', 'myCustomId', 'Hello User', sectionEl);
+//<section id = "sectionEl">
+  //<p id = "myCustomId">Hello User</p>
+//</section>
 
 // var tableEl = document.createElement('table');
 //
