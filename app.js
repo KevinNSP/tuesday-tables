@@ -102,6 +102,7 @@ var tableEl = document.createElement('table');
 //
 // };
 
+// Function to make Table Head
 function tableHead() {
   var tableHeadEl = document.createElement('thead');
   tableHeadEl.textContent = 'Times';
@@ -118,6 +119,7 @@ function tableHead() {
   tableHeadEl.appendChild(storeTotalEl);
 };
 
+//Function to make Table Foot
 function tableFoot() {
   var tableFootEl = document.createElement('tfoot');
   tableFootEl.textContent = 'Hourly Totals';
@@ -143,7 +145,30 @@ function tableFoot() {
   tableFootEl.appendChild(grandTotalEl);
 };
 
+// prototype to make data points
+CookieStore.prototype.tableData = function() {
+  var rowEl = document.createElement('tr');
+  rowEl.textContent = this.location;
+  tableEl.appendChild(rowEl);
+
+  var dailyTotal = 0;
+  for (var j = 0; j < openTimes.length; j++) {
+    var dataEl = document.createElement('td');
+    var cookie = this.cookiesPerHourAr[j];
+    dataEl.textContent = cookie;
+    dailyTotal += cookie;
+    rowEl.appendChild(dataEl);
+  }
+
+  var dailyStoreTotal = document.createElement('td');
+  dailyStoreTotal.textContent = dailyTotal;
+  rowEl.appendChild(dailyStoreTotal);
+};
+
 tableHead();
+for (var i = 0; i < stores.length; i++) {
+  stores[i].tableData();
+}
 tableFoot();
 document.body.appendChild(tableEl);
 //createElement('p', 'id', 'myCustomId', 'Hello User', sectionEl);
