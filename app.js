@@ -57,6 +57,8 @@ for(var i = 0; i < stores.length; i++){ // console.log(stores.cookiesPerHourAr);
   var storesEl = stores[i];
 }
 
+console.log(openTimes);
+
 console.log(stores);
 
 console.log(CookieStore.cookiesPerHourAr);
@@ -73,9 +75,13 @@ for(var i = 0; i < stores.length; i++){
   var rowEl = document.createElement('tr');
   tableEl.appendChild(rowEl);
 
-  var nameEl = document.createElement('th');
-  nameEl.textContent = currentStore.location;
-  rowEl.appendChild(nameEl);
+  var openTimesEl = document.createElement('th');
+  openTimesEl.textContent = openTimes;
+  tableEl.appendChild(nameEl);
+
+  var locationEl = document.createElement('th');
+  locationEl.textContent = currentStore.location;
+  rowEl.appendChild(locationEl);
 
   var minCustEl = document.createElement('td');
   minCustEl.textContent = currentStore.minCustomers;
