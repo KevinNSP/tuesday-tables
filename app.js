@@ -43,11 +43,15 @@ console.log(storeFive);
 
 var stores = [storeOne, storeTwo, storeThree, storeFour, storeFive];
 
-for(var i = 0; i < stores.length; i++){
-  stores[0++]();
+for(var i = 0; i < stores.length; i++){ // console.log(stores.cookiesPerHourAr);
+  var storesEl = stores[i];
 }
 
-// console.log(storeOne.location);
+console.log(CookieStore.cookiesPerHourAr);
+
+console.log(storeOne.maxCustomers);
+
+console.log(storeOne.location);
 
 var tableEl = document.createElement('table');
 
@@ -82,33 +86,33 @@ for(var i = 0; i < stores.length; i++){
 
 document.body.appendChild(tableEl);
 
-var tableEl = document.createElement('table');
-
-for(var i = 0; i < stores.length; i++){
-  var currentStore = stores[i];
-  var rowEl = document.createElement('tr');
-  tableEl.appendChild(rowEl);
-
-  var nameEl = document.createElement('th');
-  nameEl.textContent = currentStore.name;
-  rowEl.appendChild(nameEl);
-
-  var minCustEl = document.createElement('td');
-  minCustEl.textContent = currentStore.minCustomers;
-  rowEl.appendChild(minCustEl);
-
-  var maxCustEl = document.createElement('td');
-  maxCustEl.textContent = currentStore.maxCustomers;
-  rowEl.appendChild(maxCustEl);
-
-  var aveCookiesEl = document.createElement('td');
-  aveCookiesEl.textContent = currentStore.avgCookies;
-  rowEl.appendChild(aveCookiesEl);
-
-  var cookiesPerHourEl = document.createElement('td');
-  cookiesPerHourEl.textContent = currentStore.cookiesPerHourAr;
-  rowEl.appendChild(cookiesPerHourEl);
-
-};
-
-document.body.appendChild(tableEl);
+// var tableEl = document.createElement('table');
+//
+// for(var i = 0; i < stores.length; i++){
+//   var currentStore = stores[i];
+//   var rowEl = document.createElement('tr');
+//   tableEl.appendChild(rowEl);
+//
+//   var nameEl = document.createElement('th');
+//   nameEl.textContent = currentStore.name;
+//   rowEl.appendChild(nameEl);
+//
+//   var minCustEl = document.createElement('td');
+//   minCustEl.textContent = currentStore.minCustomers;
+//   rowEl.appendChild(minCustEl);
+//
+//   var maxCustEl = document.createElement('td');
+//   maxCustEl.textContent = currentStore.maxCustomers;
+//   rowEl.appendChild(maxCustEl);
+//
+//   var aveCookiesEl = document.createElement('td');
+//   aveCookiesEl.textContent = currentStore.avgCookies;
+//   rowEl.appendChild(aveCookiesEl);
+//
+//   var cookiesPerHourEl = document.createElement('td');
+//   cookiesPerHourEl.textContent = currentStore.cookiesPerHourAr;
+//   rowEl.appendChild(cookiesPerHourEl);
+//
+// };
+//
+// document.body.appendChild(tableEl);
