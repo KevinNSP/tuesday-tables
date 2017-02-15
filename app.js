@@ -77,7 +77,7 @@ for(var i = 0; i < stores.length; i++){
 
   var openTimesEl = document.createElement('th');
   openTimesEl.textContent = openTimes;
-  tableEl.appendChild(nameEl);
+  tableEl.appendChild(openTimesEl);
 
   var locationEl = document.createElement('th');
   locationEl.textContent = currentStore.location;
