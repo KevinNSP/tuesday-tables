@@ -11,9 +11,11 @@ function CookieStore(location, minCustomers, maxCustomers, avgCookies, cookiesPe
   this.custPerHour = function() {
     return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers));
 
-  // this.cookiesPerHour = function() {
-  //     for (var i = 6; i < 20; i++){
-  //       return this.cookiesPerHour(Math.floor(this.custPerHour() * this.avgCookies));
+    this.cookiesPerHour = function() {
+      for (var i = 6; i < 20; i++){
+        return this.cookiesPerHour(Math.floor(this.custPerHour() * this.avgCookies));
+      }
+    };
   };
   // console.log(this.location);
   // console.log(this.minCustomers);
@@ -39,17 +41,17 @@ console.log(storeFive);
 
 var stores = [storeOne, storeTwo, storeThree, storeFour, storeFive];
 
-console.log(stores);
+console.log(storeOne.location);
 
-var tableEl = document.createElement('table'); //created table element. tableEl = <table></table>
+var tableEl = document.createElement('table');
 
 for(var i = 0; i < stores.length; i++){
-  var currentStore = stores[i]; //i will dynamically change with the loop "index 0 = pikePlace" line 88
+  var currentStore = stores[i];
 
-  var rowEl = document.createElement('tr'); //creat table row w/o any content
-  tableEl.appendChild(rowEl); //append row prior to appending child to row
+  var rowEl = document.createElement('tr');
+  tableEl.appendChild(rowEl);
 
-  var nameEl = document.createElement('th'); //table heading
+  var nameEl = document.createElement('th');
   nameEl.textContent = currentStore.name;
   // <th>currentStore</th>
   rowEl.appendChild(nameEl);
@@ -63,7 +65,7 @@ for(var i = 0; i < stores.length; i++){
   rowEl.appendChild(maxCustEl);
 
   var aveCookiesEl = document.createElement('td');
-  aveCookiesEl.textContent = currentStore.aveCookies;
+  aveCookiesEl.textContent = currentStore.avgCookies;
   rowEl.appendChild(aveCookiesEl);
 
 };
