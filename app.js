@@ -1,8 +1,8 @@
 'use strict';
 
 var openTimes = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-
-function CookieStore(location, minCustomers, maxCustomers, avgCookies) {
+// constructor -------------------------
+function CookieStore(location, minCustomers, maxCustomers, avgCookies) { //function to create new CookieStore
   this.location = location;
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
@@ -20,20 +20,20 @@ function CookieStore(location, minCustomers, maxCustomers, avgCookies) {
     };
   };
 }
-
-var storeOne = new CookieStore('1st and Pike', 23, 65, 6.3);
+// ---------------------------------
+var storeOne = new CookieStore('1st and Pike', 23, 65, 6.3);//new instance of a cookie store
 // console.log(storeOne);
 
-var storeTwo = new CookieStore('Seatac Airport', 3, 24, 1.2);
+var storeTwo = new CookieStore('Seatac Airport', 3, 24, 1.2);//new instance of a cookie store
 // console.log(storeTwo);
 
-var storeThree = new CookieStore('Seattle Center', 11, 38, 3.6);
+var storeThree = new CookieStore('Seattle Center', 11, 38, 3.6);//new instance of a cookie store
 // console.log(storeThree);
 
-var storeFour = new CookieStore('Capitol Hill', 28, 38, 2.3);
+var storeFour = new CookieStore('Capitol Hill', 28, 38, 2.3);//new instance of a cookie store
 // console.log(storeFour);
 
-var storeFive = new CookieStore('Alki', 2, 16, 4.6);
+var storeFive = new CookieStore('Alki', 2, 16, 4.6);//new instance of a cookie store
 // console.log(storeFive);
 
 var stores = [storeOne, storeTwo, storeThree, storeFour, storeFive];
